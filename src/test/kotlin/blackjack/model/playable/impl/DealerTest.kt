@@ -21,8 +21,8 @@ class DealerTest : StringSpec({
         )
         dealer.playing(DealerStrategy(BlackjackScore(16)), ShuffledPack)
 
-        dealer.cards.cards shouldContain CardFixture.king
-        dealer.cards.cards shouldContain CardFixture.six
+        dealer.hands.cards shouldContain CardFixture.king
+        dealer.hands.cards shouldContain CardFixture.six
         dealer.countOfCards() shouldBe 3
     }
 
@@ -32,8 +32,8 @@ class DealerTest : StringSpec({
         )
         dealer.playing(DealerStrategy(BlackjackScore(17)), ShuffledPack)
 
-        dealer.cards.cards shouldContain CardFixture.king
-        dealer.cards.cards shouldContain CardFixture.seven
+        dealer.hands.cards shouldContain CardFixture.king
+        dealer.hands.cards shouldContain CardFixture.seven
         dealer.countOfCards() shouldBe 2
     }
 

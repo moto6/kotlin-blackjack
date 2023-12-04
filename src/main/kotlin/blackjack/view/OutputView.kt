@@ -1,6 +1,6 @@
 package blackjack.view
 
-import blackjack.model.card.Cards
+import blackjack.model.card.Hands
 import blackjack.model.player.Participants
 import blackjack.model.player.PlayableReaction
 import blackjack.model.player.playable.impl.Dealer
@@ -73,21 +73,21 @@ private fun Participants.presentDealerWithScore(): String {
 }
 
 private fun Participants.presentPlayerWithScore(): String {
-    return this.players.values.joinToString(separator = "\n") { "${it.presentPlayers()} - 결과: ${it.cards.totalScore().value}" }
+    return this.players.values.joinToString(separator = "\n") { "${it.presentPlayers()} - 결과: ${it.hands.totalScore().value}" }
 }
 
 private fun Participants.names(): String {
     return players.values.joinToString(separator = InputView.PARTICIPANTS_PRESENT_SEPARATOR) { it.name }
 }
 
-fun Cards.presentPlayers(): String {
+fun Hands.presentPlayers(): String {
     return cards.joinToString(separator = ", ") { "${it.cardRank.alias}${it.suit.alias}" }
 }
 
 fun Player.presentPlayers(): String {
-    return "${this.name}카드 : ${this.cards.presentPlayers()}"
+    return "${this.name}카드 : ${this.hands.presentPlayers()}"
 }
 
 fun Dealer.presentDealers(): String {
-    return "딜러 카드 : ${this.cards.presentPlayers()}"
+    return "딜러 카드 : ${this.hands.presentPlayers()}"
 }

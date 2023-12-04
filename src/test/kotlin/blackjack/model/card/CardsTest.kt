@@ -10,7 +10,7 @@ import io.kotest.matchers.shouldBe
 class CardsTest : StringSpec({
 
     "Cards 의 모든 카드의 점수의 합을 반환해야 한다" {
-        val actual = Cards(
+        val actual = Hands(
             listOf(
                 Card.of(Suit.CLOVER, CardRank.THREE),
                 Card.of(Suit.DIAMOND, CardRank.FIVE),
@@ -22,7 +22,7 @@ class CardsTest : StringSpec({
     }
 
     "합계점수가 21를 초과 하는 경우, ACE 가 1로 인식되어야 한다" {
-        val actual = Cards(
+        val actual = Hands(
             listOf(
                 Card.of(Suit.HEART, CardRank.ACE),
                 Card.of(Suit.DIAMOND, CardRank.FIVE),
@@ -34,7 +34,7 @@ class CardsTest : StringSpec({
     }
 
     "합계점수가 21를 이하인 경우, ACE 가 11로 인식되어야 한다" {
-        val actual = Cards(
+        val actual = Hands(
             listOf(
                 Card.of(Suit.HEART, CardRank.ACE),
                 Card.of(Suit.HEART, CardRank.THREE),

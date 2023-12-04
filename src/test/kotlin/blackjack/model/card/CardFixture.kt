@@ -1,8 +1,8 @@
 package blackjack.model.card
 
 object CardFixture {
-    fun makeCards(vararg cardArray: Card): Cards {
-        return Cards(cardArray.toList())
+    fun makeCards(vararg cardArray: Card): Hands {
+        return Hands(cardArray.toList())
     }
 
     val ace1 = Card.of(Suit.HEART, CardRank.ACE)

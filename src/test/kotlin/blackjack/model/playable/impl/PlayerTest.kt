@@ -17,7 +17,7 @@ class PlayerTest : StringSpec({
         shouldNotThrow<IllegalArgumentException> {
             val player = Player("구글", status = BlackJackStatus.ALIVE)
             player.dealing(ShuffledPack)
-            player.cards.count() shouldBe 2
+            player.hands.count() shouldBe 2
         }
     }
 
@@ -25,7 +25,7 @@ class PlayerTest : StringSpec({
         shouldNotThrow<IllegalArgumentException> {
             val player = Player("애플", status = BlackJackStatus.ALIVE)
             player.hit(ShuffledPack)
-            player.cards.count() shouldBe 1
+            player.hands.count() shouldBe 1
         }
     }
 

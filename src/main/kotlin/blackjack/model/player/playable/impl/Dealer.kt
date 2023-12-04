@@ -2,7 +2,7 @@ package blackjack.model.player.playable.impl
 
 import blackjack.model.blackjack.BlackJackStatus
 import blackjack.model.blackjack.judgment.impl.BlackJackJudgment
-import blackjack.model.card.Cards
+import blackjack.model.card.Hands
 import blackjack.model.card.pack.Pack
 import blackjack.model.player.BlackjackScore
 import blackjack.model.player.PlayableReaction
@@ -13,25 +13,25 @@ import blackjack.model.result.DealerResult
 import blackjack.model.result.PlayableResult
 
 class Dealer(
-    val cards: Cards = Cards(),
+    val hands: Hands = Hands(),
 ) : Playable {
 
     override fun score(): BlackjackScore {
-        return cards.totalScore()
+        return hands.totalScore()
     }
 
     override fun dealing(pack: Pack) {
-        this.cards.add(pack.pickCard())
-        this.cards.add(pack.pickCard())
+        this.hands.add(pack.pickCard())
+        this.hands.add(pack.pickCard())
     }
 
     fun countOfCards(): Int {
-        return cards.count()
+        return hands.count()
     }
 
     override fun playing(playingStrategy: PlayingStrategy, pack: Pack): PlayableReaction {
         if (playingStrategy.isHit()) {
-            cards.add(pack.pickCard())
+            hands.add(pack.pickCard())
             return PlayableReaction.HIT
         }
         return PlayableReaction.STAND

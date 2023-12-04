@@ -2,7 +2,7 @@ package blackjack.model.card
 
 import blackjack.model.player.BlackjackScore
 
-class Cards(
+class Hands(
     cards: List<Card> = emptyList(),
 ) {
     private val _cards: MutableList<Card> = cards.toMutableList()
@@ -44,8 +44,8 @@ class Cards(
         private const val HIGHEST_SCORE: Int = 21
         private const val ACE_BONUS_SCORE: Int = 10
 
-        fun emptyCards(): Cards {
-            return Cards(mutableListOf())
+        fun emptyCards(): Hands {
+            return Hands(mutableListOf())
         }
     }
 }
